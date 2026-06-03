@@ -127,6 +127,32 @@ export const en: Translations = {
   builtIn: "Built-in",
   cannotDeleteBuiltIn: "Cannot delete built-in schools",
 
+  // Token
+  authToken: "Authorization Token",
+  authTokenPlaceholder: "Paste your Bearer token here...",
+  authTokenHelp: "Required for deleting versions. Optional for other operations.",
+  authTokenRequired: "Token is required",
+
+  // Delete Version
+  deleteVersion: "🗑️ Delete Version",
+  confirmDeleteVersion: "Are you sure you want to delete this version?",
+  versionDeletedSuccess: "Version deleted successfully!",
+  deletingVersion: "⏳ Deleting...",
+  tokenRequiredForDelete: "Authorization token is required to delete a version. Please enter it in the Configuration section.",
+
+  // Bulk Actions
+  selectAll: "Select All",
+  deselectAll: "Deselect All",
+  selectedCount: "selected",
+  bulkDisable: "❌ Disable Selected",
+  bulkDelete: "🗑️ Delete Selected",
+  confirmBulkDelete: "Are you sure you want to delete the selected versions?",
+  confirmBulkDisable: "Are you sure you want to disable the selected versions?",
+  bulkDeleteSuccess: "Selected versions deleted successfully!",
+  bulkDisableSuccess: "Selected versions disabled successfully!",
+  bulkActionInProgress: "⏳ Processing...",
+  confirm: "Confirm",
+
   // Cloud Sync
   cloudSync: "Cloud Sync",
   uploadToCloud: "Upload to Cloud",

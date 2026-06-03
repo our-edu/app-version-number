@@ -127,6 +127,32 @@ export const ar: Translations = {
   builtIn: "مدمج",
   cannotDeleteBuiltIn: "لا يمكن حذف المدارس المدمجة",
 
+  // Token
+  authToken: "رمز التفويض",
+  authTokenPlaceholder: "الصق رمز Bearer هنا...",
+  authTokenHelp: "مطلوب لحذف الإصدارات. اختياري للعمليات الأخرى.",
+  authTokenRequired: "الرمز مطلوب",
+
+  // Delete Version
+  deleteVersion: "🗑️ حذف الإصدار",
+  confirmDeleteVersion: "هل أنت متأكد من حذف هذا الإصدار؟",
+  versionDeletedSuccess: "تم حذف الإصدار بنجاح!",
+  deletingVersion: "⏳ جاري الحذف...",
+  tokenRequiredForDelete: "رمز التفويض مطلوب لحذف الإصدار. يرجى إدخاله في قسم الإعدادات.",
+
+  // Bulk Actions
+  selectAll: "تحديد الكل",
+  deselectAll: "إلغاء تحديد الكل",
+  selectedCount: "محدد",
+  bulkDisable: "❌ تعطيل المحدد",
+  bulkDelete: "🗑️ حذف المحدد",
+  confirmBulkDelete: "هل أنت متأكد من حذف الإصدارات المحددة؟",
+  confirmBulkDisable: "هل أنت متأكد من تعطيل الإصدارات المحددة؟",
+  bulkDeleteSuccess: "تم حذف الإصدارات المحددة بنجاح!",
+  bulkDisableSuccess: "تم تعطيل الإصدارات المحددة بنجاح!",
+  bulkActionInProgress: "⏳ جاري المعالجة...",
+  confirm: "تأكيد",
+
   // Cloud Sync
   cloudSync: "المزامنة السحابية",
   uploadToCloud: "رفع إلى السحابة",

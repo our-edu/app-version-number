@@ -36,6 +36,7 @@ function App() {
   const { t, language, setLanguage } = useLanguage();
   const [selectedSchool, setSelectedSchool] = useState<string>("");
   const [selectedAppType, setSelectedAppType] = useState<string>("");
+  const [authToken, setAuthToken] = useState<string>("");
   const [activeTab, setActiveTab] = useState<string>("list");
   const [versions, setVersions] = useState<VersionData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -305,6 +306,33 @@ function App() {
     setError("");
   }, [selectedSchool, selectedAppType]);
 
+  // Clear token when school changes
+  const handleSchoolChange = (school: string) => {
+    setSelectedSchool(school);
+    setAuthToken("");
+  };
+
+  // Function to delete a version
+  const deleteVersion = async (versionId: string): Promise<void> => {
+    if (!selectedSchool || !currentConfig) {
+      throw new Error("Please select a school first");
+    }
+
+    if (!authToken) {
+      throw new Error(t.tokenRequiredForDelete);
+    }
+
+    const url = `${currentConfig.baseUrl}/mobile-versions/${versionId}`;
+
+    await secureApi.delete(url, {
+      headers: {
+        Accept: "application/vnd.api+json",
+        "Content-Type": "application/vnd.api+json",
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
+  };
+
   return (
     <div className="container">
       <header className="header">
@@ -360,8 +388,10 @@ function App() {
       <AppSelector
         selectedSchool={selectedSchool}
         selectedAppType={selectedAppType}
-        onSchoolChange={setSelectedSchool}
+        authToken={authToken}
+        onSchoolChange={handleSchoolChange}
         onAppTypeChange={setSelectedAppType}
+        onTokenChange={setAuthToken}
         appConfigs={{ ...customSchools }}
       />
 
@@ -387,8 +417,10 @@ function App() {
           versions={versions}
           loading={loading}
           error={error}
+          authToken={authToken}
           onFetchVersions={fetchVersions}
           onToggleStatus={submitVersion}
+          onDeleteVersion={deleteVersion}
         />
       )}
 

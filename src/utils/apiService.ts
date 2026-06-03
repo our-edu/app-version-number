@@ -159,6 +159,21 @@ class SecureApiService {
   }
 
   /**
+   * Secure DELETE request
+   */
+  async delete<T = any>(
+    url: string,
+    config?: AxiosRequestConfig
+  ): Promise<AxiosResponse<T>> {
+    try {
+      const response = await this.axiosInstance.delete<T>(url, config);
+      return response;
+    } catch (error) {
+      throw this.sanitizeError(error);
+    }
+  }
+
+  /**
    * Sanitize data before sending
    */
   private sanitizeData(data: any): any {

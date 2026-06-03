@@ -31,8 +31,10 @@ interface AppConfigs {
 interface AppSelectorProps {
   selectedSchool?: string;
   selectedAppType?: string;
+  authToken?: string;
   onSchoolChange: (school: string) => void;
   onAppTypeChange: (appType: string) => void;
+  onTokenChange: (token: string) => void;
   appConfigs: AppConfigs;
 }
 
@@ -45,8 +47,10 @@ interface AppSelectorProps {
 const AppSelector: React.FC<AppSelectorProps> = ({
   selectedSchool = "",
   selectedAppType = "",
+  authToken = "",
   onSchoolChange,
   onAppTypeChange,
+  onTokenChange,
   appConfigs = {},
 }) => {
   const { t } = useLanguage();
@@ -85,6 +89,18 @@ const AppSelector: React.FC<AppSelectorProps> = ({
       }
     },
     [onAppTypeChange]
+  );
+
+  /**
+   * Handles token input change
+   */
+  const handleTokenChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (onTokenChange) {
+        onTokenChange(e.target.value);
+      }
+    },
+    [onTokenChange]
   );
 
   /**
@@ -162,6 +178,21 @@ const AppSelector: React.FC<AppSelectorProps> = ({
             className="readonly-input"
           />
           <small className="help-text">{t.apiBaseUrlHelp}</small>
+        </div>
+      )}
+
+      {currentSchoolConfig && (
+        <div className="form-group">
+          <label htmlFor="authToken">{t.authToken}:</label>
+          <input
+            type="password"
+            id="authToken"
+            value={authToken}
+            onChange={handleTokenChange}
+            placeholder={t.authTokenPlaceholder}
+            aria-label={t.authToken}
+          />
+          <small className="help-text">{t.authTokenHelp}</small>
         </div>
       )}
     </div>

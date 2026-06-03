@@ -125,6 +125,32 @@ export interface Translations {
   builtIn: string;
   cannotDeleteBuiltIn: string;
 
+  // Token
+  authToken: string;
+  authTokenPlaceholder: string;
+  authTokenHelp: string;
+  authTokenRequired: string;
+
+  // Delete Version
+  deleteVersion: string;
+  confirmDeleteVersion: string;
+  versionDeletedSuccess: string;
+  deletingVersion: string;
+  tokenRequiredForDelete: string;
+
+  // Bulk Actions
+  selectAll: string;
+  deselectAll: string;
+  selectedCount: string;
+  bulkDisable: string;
+  bulkDelete: string;
+  confirmBulkDelete: string;
+  confirmBulkDisable: string;
+  bulkDeleteSuccess: string;
+  bulkDisableSuccess: string;
+  bulkActionInProgress: string;
+  confirm: string;
+
   // Cloud Sync
   cloudSync: string;
   uploadToCloud: string;
