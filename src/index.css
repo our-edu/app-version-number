@@ -1585,6 +1585,11 @@ code {
   transform: translateX(26px);
 }
 
+[dir="rtl"] .cloud-sync-toggle .toggle-slider:before {
+  left: auto;
+  right: 4px;
+}
+
 .cloud-sync-controls {
   display: flex;
   gap: 12px;
